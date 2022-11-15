@@ -1,0 +1,137 @@
+:root {
+  /* Primary */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  /* Neutral */
+  --very-dark-blue: hsl(234, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --very-light-gray: hsl(0, 0%, 98%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--very-light-gray);
+}
+
+.header {
+  width: 90%;
+  max-width: 470px;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.header__p {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 200;
+  color: var(--very-dark-blue);
+}
+
+.header__h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  color: var(--very-dark-blue);
+}
+
+.header__p--info {
+  font-size: clamp(1.4rem, 4.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--grayish-blue);
+  margin: 20px 0 70px;
+}
+
+.main {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "supervisor"
+    "builder"
+    "karma"
+    "calculator";
+  gap: 20px;
+}
+
+.main__card {
+  grid-area: supervisor;
+  width: 100%;
+  max-width: 350px;
+  height: max-content;
+  padding: 20px;
+  border-radius: 8px;
+  border-top: 3px solid var(--cyan);
+  background-color: #fff;
+  box-shadow: 1px 3px 7px rgb(0 0 0 / 30%);
+}
+
+.main__card--builder {
+  grid-area: builder;
+  border-top: 3px solid var(--red);
+}
+
+.main__card--karma {
+  grid-area: karma;
+  border-top: 3px solid var(--orange);
+}
+
+.main__card--calculator {
+  grid-area: calculator;
+  border-top: 3px solid var(--blue);
+}
+
+.main__h3 {
+  color: var(--very-dark-blue);
+  font-size: 2.2rem;
+}
+
+.main__p {
+  color: var(--grayish-blue);
+  font-size: 1.4rem;
+  margin: 10px 0 40px;
+}
+
+.main__img {
+  width: 55px;
+  height: 55px;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "supervisor builder"
+      "karma  calculator";
+  }
+}
+
+@media (min-width: 1000px) {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "supervisor builder calculator"
+      "supervisor karma  calculator";
+  }
+
+  .main__card--supervisor {
+    align-self: center;
+  }
+
+  .main__card--calculator {
+    align-self: center;
+  }
+}
